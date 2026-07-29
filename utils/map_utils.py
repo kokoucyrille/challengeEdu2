@@ -68,9 +68,9 @@ def build_map_priorities(df_etab: pd.DataFrame, impact_urgence: pd.DataFrame) ->
     <div style="position: fixed; bottom: 30px; left: 30px; z-index: 9999; background: white;
          padding: 10px 14px; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.3); font-size: 13px;">
     <b>Priorité d'investissement (§20)</b><br>
-    <span style="color:#A1443A">●</span> Priorité 1 — agir en premier<br>
-    <span style="color:#C99A2E">●</span> Priorité 2 — à surveiller<br>
-    <span style="color:#0E4C86">●</span> Priorité 3 — situation plus favorable
+    <span style="color:#D62839">●</span> Priorité 1 — agir en premier<br>
+    <span style="color:#F2C744">●</span> Priorité 2 — à surveiller<br>
+    <span style="color:#1B6B45">●</span> Priorité 3 — situation plus favorable
     </div>
     """
     m.get_root().html.add_child(folium.Element(legend_html))

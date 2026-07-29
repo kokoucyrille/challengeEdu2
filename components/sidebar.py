@@ -9,9 +9,25 @@ render_sidebar(show_filters=False) pour une interface plus sobre.
 """
 import streamlit as st
 
-from config import MINISTERE
+from config import MINISTERE, NAV_SECTIONS
 from components.filters import render_page_filters, apply_filters
 from utils.preprocessing import clean_etablissements
+
+
+def render_page_nav(current: str):
+    """Petit menu de navigation textuel (5 sections) dans la sidebar, en plus du
+    menu natif Streamlit, pour une lecture immediate de la structure du site."""
+    st.markdown("**Navigation**")
+    for slug, icon, label in NAV_SECTIONS:
+        marker = "▸ " if slug == current else "&nbsp;&nbsp;"
+        weight = "700" if slug == current else "400"
+        opacity = "1" if slug == current else "0.72"
+        st.markdown(
+            f"<div style='font-size:13.5px;padding:2px 0;font-weight:{weight};opacity:{opacity};'>"
+            f"{marker}{icon} {label}</div>",
+            unsafe_allow_html=True,
+        )
+    st.markdown("<hr>", unsafe_allow_html=True)
 
 
 def render_sidebar(show_filters: bool = True, current: str = ""):
@@ -21,6 +37,9 @@ def render_sidebar(show_filters: bool = True, current: str = ""):
         st.caption(MINISTERE)
         st.caption("Data Challenge Éducation — Défi 2 — 2026")
         st.markdown("<hr>", unsafe_allow_html=True)
+
+        if current:
+            render_page_nav(current)
 
         df_etab = clean_etablissements()
         if show_filters:

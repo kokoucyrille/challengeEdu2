@@ -29,22 +29,17 @@ def render_logo_strip():
 
 
 def render_navbar(title: str, badge: str = "", icon: str = "📄", show_logos: bool = False):
-    """En-tete de page coherent : eyebrow institutionnel, titre (police éditoriale)
-    et sous-titre de repère thématique. `badge` porte le sous-titre descriptif."""
+    """En-tete de page coherent : icone + titre + badge de repere (theme traite)."""
     if show_logos:
         render_logo_strip()
-    subtitle_html = f'<div class="subtitle">{badge}</div>' if badge else ""
+    badge_html = f'<div class="badge">{badge}</div>' if badge else ""
     st.markdown(
         f"""
         <div class="page-header">
-            <div class="masthead-eyebrow">République Togolaise · Ministère de l'Éducation Nationale</div>
-            <div class="top-row">
-                <div>
-                    <div class="title">{icon} {title}</div>
-                    {subtitle_html}
-                </div>
+            <div>
+                <div class="title">{icon} {title}</div>
             </div>
-            <div class="masthead-rule"></div>
+            {badge_html}
         </div>
         """,
         unsafe_allow_html=True,

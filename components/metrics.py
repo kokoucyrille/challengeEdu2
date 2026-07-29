@@ -19,7 +19,7 @@ def metric_row(metrics: List[Tuple[str, str, str]]):
             st.metric(label, value, help=helptext or None)
 
 
-def kpi_card(label: str, value: str, icon: str = "📌", color: str = "#0E2A47", delta: Optional[str] = None):
+def kpi_card(label: str, value: str, icon: str = "📌", color: str = "#0B3D66", delta: Optional[str] = None):
     """Carte KPI stylee (icone + titre + valeur + evolution + couleur)."""
     delta_html = ""
     if delta:
