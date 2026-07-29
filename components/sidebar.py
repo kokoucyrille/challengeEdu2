@@ -36,7 +36,9 @@ def render_sidebar(show_filters: bool = True, current: str = ""):
         logos = [ASSETS_DIR / filename for filename in LOGO_FILES]
         available_logos = [logo for logo in logos if logo.exists()]
         if available_logos:
-            st.image(str(available_logos[0]), width='stretch')
+            col_l, col_c, col_r = st.columns([1, 2, 1])
+            with col_c:
+                st.image(str(available_logos[0]), width=110)
         else:
             st.markdown(f"# {APP_ICON} Togo")
         st.markdown("**Adéquation Formation-Emploi**")
