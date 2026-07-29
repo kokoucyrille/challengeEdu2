@@ -10,7 +10,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
-from config import APP_TITLE, CSS_PATH, ASSETS_DIR, LOGO_FILES
+from config import APP_TITLE, CSS_PATH
 
 
 def setup_page(page_title: str, page_icon: str = "📄"):
@@ -18,10 +18,6 @@ def setup_page(page_title: str, page_icon: str = "📄"):
     du script) + injection du CSS personnalisé. Appelée en tête de chaque page."""
     st.set_page_config(page_title=f"{page_title} · {APP_TITLE}", page_icon=page_icon,
                         layout="wide", initial_sidebar_state="expanded")
-    logos = [ASSETS_DIR / filename for filename in LOGO_FILES]
-    available_logos = [logo for logo in logos if logo.exists()]
-    if available_logos:
-        st.logo(str(available_logos[0]), size="small")
     if CSS_PATH.exists():
         st.markdown(f"<style>{CSS_PATH.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
 
