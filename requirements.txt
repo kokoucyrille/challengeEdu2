@@ -9,6 +9,7 @@ python-louvain>=0.16
 scikit-learn>=1.4
 xgboost>=2.0
 scipy>=1.11
+matplotlib>=3.8
 pyvis>=0.3.2
 openpyxl>=3.1
 xlsxwriter>=3.2
