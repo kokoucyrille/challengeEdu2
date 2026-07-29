@@ -9,7 +9,7 @@ render_sidebar(show_filters=False) pour une interface plus sobre.
 """
 import streamlit as st
 
-from config import APP_ICON, MINISTERE, ASSETS_DIR, LOGO_FILES, NAV_SECTIONS
+from config import MINISTERE, NAV_SECTIONS
 from components.filters import render_page_filters, apply_filters
 from utils.preprocessing import clean_etablissements
 
@@ -33,14 +33,6 @@ def render_page_nav(current: str):
 def render_sidebar(show_filters: bool = True, current: str = ""):
     """Affiche la sidebar complete et retourne (df_etab_filtre_ou_complet, filters_dict)."""
     with st.sidebar:
-        logos = [ASSETS_DIR / filename for filename in LOGO_FILES]
-        available_logos = [logo for logo in logos if logo.exists()]
-        if available_logos:
-            col_l, col_c, col_r = st.columns([1, 2, 1])
-            with col_c:
-                st.image(str(available_logos[0]), width=110)
-        else:
-            st.markdown(f"# {APP_ICON} Togo")
         st.markdown("**Adéquation Formation-Emploi**")
         st.caption(MINISTERE)
         st.caption("Data Challenge Éducation — Défi 2 — 2026")
