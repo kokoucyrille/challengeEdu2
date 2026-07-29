@@ -136,8 +136,8 @@ with tabs[1]:
         impact_urgence = compute_impact_urgence(df_filtered)
         med_impact, med_urgence = impact_urgence.attrs["med_impact"], impact_urgence.attrs["med_urgence"]
         fig = go.Figure()
-        fig.add_shape(type="rect", x0=med_impact, x1=105, y0=med_urgence, y1=105, fillcolor="#D64545", opacity=0.07, line_width=0)
-        fig.add_shape(type="rect", x0=-5, x1=med_impact, y0=-5, y1=med_urgence, fillcolor="#0B6E4F", opacity=0.07, line_width=0)
+        fig.add_shape(type="rect", x0=med_impact, x1=105, y0=med_urgence, y1=105, fillcolor="#A1443A", opacity=0.07, line_width=0)
+        fig.add_shape(type="rect", x0=-5, x1=med_impact, y0=-5, y1=med_urgence, fillcolor="#1E7A6F", opacity=0.07, line_width=0)
         fig.add_vline(x=med_impact, line_dash="dot", line_color="gray")
         fig.add_hline(y=med_urgence, line_dash="dot", line_color="gray")
         fig.add_trace(go.Scatter(x=impact_urgence["Impact"], y=impact_urgence["Urgence"], mode="markers+text",
@@ -253,11 +253,11 @@ with tabs[4]:
     nb_p1 = int((impact_urgence["Priorité"] == "Priorité 1").sum())
 
     kpi_row([
-        ("IAFE national", f"{iafe_data['iafe_national']:.1f}/100", "🧮", "#0B6E4F"),
-        ("Région n°1 en priorité", region_p1_top, "📍", "#D64545"),
-        ("Régions en Priorité 1", f"{nb_p1} / 5", "🚨", "#D64545" if nb_p1 else "#0B6E4F"),
-        ("Chômage diplômés (dernier)", f"{iafe_data['chomage_val']:.1f}%", "📉", "#17A2B8"),
-        ("Budget / étudiant (dernier)", f"{fmt_fr(iafe_data['budget_val'])} FCFA", "💰", "#F2994A"),
+        ("IAFE national", f"{iafe_data['iafe_national']:.1f}/100", "🧮", "#1E7A6F"),
+        ("Région n°1 en priorité", region_p1_top, "📍", "#A1443A"),
+        ("Régions en Priorité 1", f"{nb_p1} / 5", "🚨", "#A1443A" if nb_p1 else "#1E7A6F"),
+        ("Chômage diplômés (dernier)", f"{iafe_data['chomage_val']:.1f}%", "📉", "#C99A2E"),
+        ("Budget / étudiant (dernier)", f"{fmt_fr(iafe_data['budget_val'])} FCFA", "💰", "#B5651D"),
     ])
     st.write("")
 
@@ -274,23 +274,23 @@ with tabs[4]:
     if len(regions_p1):
         decision_card("🏗️ Construire de nouveaux centres techniques", f"Régions Priorité 1 : {', '.join(regions_p1.index)}",
                       f"Déficit d'offre moyen de {regions_p1['deficit_offre'].mean():.0f}/100 ; seuil de rattrapage "
-                      f"estimé à +{sc['nb_centres_necessaires']} centres pour {sc['region_cible']} seule.", "#D64545")
+                      f"estimé à +{sc['nb_centres_necessaires']} centres pour {sc['region_cible']} seule.", "#A1443A")
     if iafe_data["budget_score"] < 50:
         decision_card("💰 Augmenter le budget par étudiant", "Niveau national",
                       f"Dépense/étudiant {iafe_data['budget_year']} = {fmt_fr(iafe_data['budget_val'])} FCFA, "
-                      f"positionnée à {iafe_data['budget_score']:.0f}/100 de sa propre plage historique observée.", "#F2994A")
+                      f"positionnée à {iafe_data['budget_score']:.0f}/100 de sa propre plage historique observée.", "#B5651D")
     decision_card("🎓 Développer certaines filières", f"Renforcer « {categorie_porteuse} » ; encadrer « {categorie_risque} »",
                   f"Indice de saturation proxy : {risk.loc[categorie_porteuse, 'indice_saturation_proxy']:.1f}/100 vs "
-                  f"{risk.loc[categorie_risque, 'indice_saturation_proxy']:.1f}/100.", "#17A2B8")
+                  f"{risk.loc[categorie_risque, 'indice_saturation_proxy']:.1f}/100.", "#C99A2E")
     if len(regions_insertion_faible):
         decision_card("🤝 Renforcer les partenariats entreprises-universités", ", ".join(regions_insertion_faible.index),
                       f"Score d'insertion (proxy) le plus faible pour {regions_insertion_faible.index[0]} "
-                      f"({regions_insertion_faible.iloc[0]:.0f}/100).", "#0B6E4F")
+                      f"({regions_insertion_faible.iloc[0]:.0f}/100).", "#1E7A6F")
     decision_card("🏫 Améliorer les infrastructures", "Ensemble du parc de formation technique",
                   f"{infra_gap_sport:.0f}% des établissements sans terrain de sport recensé, {infra_gap_toilette:.0f}% "
                   "sans type de sanitaire renseigné.", "#8C5E58")
     decision_card("🎯 Créer des bourses ciblées", f"{scores_df['Opportunity Index'].idxmax()}",
-                  f"Opportunity Index le plus élevé du pays ({scores_df['Opportunity Index'].max():.0f}/100).", "#F2994A")
+                  f"Opportunity Index le plus élevé du pays ({scores_df['Opportunity Index'].max():.0f}/100).", "#B5651D")
 
     st.markdown("#### En une phrase")
     synthese = (
@@ -301,8 +301,8 @@ with tabs[4]:
         "observé — une fenêtre favorable pour agir."
     )
     st.markdown(
-        f'<div style="padding:18px 22px;background:linear-gradient(135deg,#0B6E4F,#17A2B8);color:white;'
-        f'border-radius:10px;font-size:15.5px;line-height:1.6;">{synthese}</div>',
+        f'<div style="padding:18px 22px;background:#0E2A47;color:white;border-left:3px solid #1E7A6F;'
+        f'border-radius:6px;font-size:15.5px;line-height:1.6;">{synthese}</div>',
         unsafe_allow_html=True,
     )
 

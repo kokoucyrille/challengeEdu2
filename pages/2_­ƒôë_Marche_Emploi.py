@@ -171,18 +171,18 @@ with tab4:
     c1, c2 = st.columns(2)
     with c1:
         decision_card("Régions prioritaires", regions_p1,
-                       "Croisement du déficit structurel et de l'urgence démographique.", "#D64545")
+                       "Croisement du déficit structurel et de l'urgence démographique.", "#A1443A")
         decision_card("Formations à développer", risque.index[-1],
-                       "Catégorie présentant le risque structurel proxy le plus faible.", "#0B3D66")
+                       "Catégorie présentant le risque structurel proxy le plus faible.", "#0E2A47")
         decision_card("Secteurs porteurs", ", ".join(secteurs) if secteurs else "À documenter",
-                       "Secteurs les plus représentés dans l'offre filtrée.", "#17A2B8")
+                       "Secteurs les plus représentés dans l'offre filtrée.", "#C99A2E")
     with c2:
         decision_card("Populations vulnérables", ", ".join(vulnerables),
-                       "Territoires cumulant couverture relative faible et pression de demande élevée.", "#F2994A")
+                       "Territoires cumulant couverture relative faible et pression de demande élevée.", "#B5651D")
         decision_card("Formation à surveiller", risque.index[0],
-                       "Risque de saturation structurel le plus élevé : enquête d'insertion recommandée.", "#D64545")
+                       "Risque de saturation structurel le plus élevé : enquête d'insertion recommandée.", "#A1443A")
         decision_card("Impact attendu", "Accès, équité et employabilité",
-                       "Une meilleure allocation territoriale doit augmenter la couverture et réduire les déséquilibres.", "#0B6E4F")
+                       "Une meilleure allocation territoriale doit augmenter la couverture et réduire les déséquilibres.", "#1E7A6F")
 
     st.markdown("### Recommandations stratégiques")
     st.markdown(

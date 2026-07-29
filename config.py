@@ -35,19 +35,19 @@ AUTHOR = "DAYO Kokou Cyrille"
 INSTITUTION = "TOGO AI LAB"
 MINISTERE = "Ministère de l'Éducation Nationale et Ministère de l'Enseignement Supérieur"
 
-PALETTE = ["#005BAC", "#2C7BE5", "#0B6E4F", "#F4B942", "#D64545", "#6C757D"]
+PALETTE = ["#0E4C86", "#3B78B5", "#1E7A6F", "#C99A2E", "#A1443A", "#6B7280"]
 REGIONS = ["Maritime", "Plateaux", "Centrale", "Kara", "Savanes"]
 REGION_COLORS = dict(zip(REGIONS, PALETTE))
 
-COLOR_PRIMARY = "#0B3D66"
-COLOR_ACCENT = "#17A2B8"
-COLOR_ORANGE = "#F2994A"
-COLOR_DANGER = "#D64545"
-COLOR_INFO = "#2C7BE5"
-COLOR_SUCCESS = "#0B6E4F"
+COLOR_PRIMARY = "#0E2A47"
+COLOR_ACCENT = "#C99A2E"
+COLOR_ORANGE = "#C99A2E"
+COLOR_DANGER = "#A1443A"
+COLOR_INFO = "#3B78B5"
+COLOR_SUCCESS = "#1E7A6F"
 
 
-PRIORITY_COLOR = {"Priorité 1": "#D64545", "Priorité 2": "#F4B942", "Priorité 3": "#005BAC"}
+PRIORITY_COLOR = {"Priorité 1": "#A1443A", "Priorité 2": "#C99A2E", "Priorité 3": "#0E4C86"}
 
 LOGO_FILES = (
     "ministere_education_nationale.jpg",

@@ -81,9 +81,9 @@ with tab1:
 # ------------------------------------------------------------------
 with tab2:
     kpi_row([
-        ("Formations techniques", str(kpi["Nombre de formations techniques recensées"]), "🏫", "#0B3D66"),
-        ("Régions couvertes", f"{kpi['Nombre de régions couvertes (formation technique)']}/5", "🗺️", "#17A2B8"),
-        ("Préfectures couvertes", str(kpi["Nombre de préfectures couvertes"]), "📍", "#F2994A"),
+        ("Formations techniques", str(kpi["Nombre de formations techniques recensées"]), "🏫", "#0E2A47"),
+        ("Régions couvertes", f"{kpi['Nombre de régions couvertes (formation technique)']}/5", "🗺️", "#C99A2E"),
+        ("Préfectures couvertes", str(kpi["Nombre de préfectures couvertes"]), "📍", "#B5651D"),
     ])
 
     st.markdown("#### Répartition hiérarchique — Togo → Région → Préfecture → Catégorie")

@@ -30,13 +30,10 @@ render_navbar("Adéquation Formation-Emploi au Togo", "Tableau de bord de pilota
 st.markdown(
     """
     <div class="hero-banner">
-        <div style="font-size:34px;font-weight:800;">🇹🇬 Adéquation Formation-Emploi au Togo</div>
-        <div style="font-size:16px;margin-top:6px;opacity:0.95;">
-            Data Challenge Éducation — Défi 2 — 2026 · Tableau de bord stratégique à destination du Ministère
-        </div>
-        <div style="font-size:13.5px;margin-top:12px;opacity:0.88;">
-            Formations techniques · Enseignement supérieur · Budgets · Chômage des diplômés · Indice IAFE
-        </div>
+        <div class="masthead-eyebrow" style="color:#E8D3A0;">Data Challenge Éducation — Défi 2 — 2026</div>
+        <div class="hero-title">🇹🇬 Adéquation Formation-Emploi au Togo</div>
+        <div class="hero-subtitle">Tableau de bord stratégique à destination du Ministère</div>
+        <div class="hero-scope">Formations techniques · Enseignement supérieur · Budgets · Chômage des diplômés · Indice IAFE</div>
     </div>
     """,
     unsafe_allow_html=True,
@@ -66,17 +63,17 @@ femin = ind_wide["taux_feminisation"].dropna()
 delta_femin = f"{'▲' if femin.iloc[-1] >= femin.iloc[0] else '▼'} depuis {femin.index[0]}"
 
 kpi_row([
-    ("Formations techniques", str(kpi["Nombre de formations techniques recensées"]), "🏫", "#0B3D66"),
-    ("Régions couvertes", f"{kpi['Nombre de régions couvertes (formation technique)']}/5", "🗺️", "#17A2B8"),
-    ("Préfectures couvertes", str(kpi["Nombre de préfectures couvertes"]), "📍", "#F2994A"),
-    ("Universités (2018)", str(kpi["Nombre d'universités recensées (2018)"]), "🎓", "#D64545"),
+    ("Formations techniques", str(kpi["Nombre de formations techniques recensées"]), "🏫", "#0E2A47"),
+    ("Régions couvertes", f"{kpi['Nombre de régions couvertes (formation technique)']}/5", "🗺️", "#C99A2E"),
+    ("Préfectures couvertes", str(kpi["Nombre de préfectures couvertes"]), "📍", "#B5651D"),
+    ("Universités (2018)", str(kpi["Nombre d'universités recensées (2018)"]), "🎓", "#A1443A"),
 ])
 st.write("")
 kpi_row([
-    ("Féminisation étudiants", f"{kpi['Taux de féminisation le plus récent (%)']}%", "👩‍🎓", "#0B3D66", delta_femin),
-    ("Ratio étud./enseignant", f"{kpi['Ratio étudiants/enseignants le plus récent']}:1", "👩‍🏫", "#17A2B8"),
-    ("Filières scientifiques", f"{kpi['Part des filières scientifiques la plus récente (%)']}%", "🔬", "#F2994A"),
-    ("Chômage diplômés", kpi["Chômage diplômés le plus récent connu (%, année)"], "📉", "#D64545"),
+    ("Féminisation étudiants", f"{kpi['Taux de féminisation le plus récent (%)']}%", "👩‍🎓", "#0E2A47", delta_femin),
+    ("Ratio étud./enseignant", f"{kpi['Ratio étudiants/enseignants le plus récent']}:1", "👩‍🏫", "#C99A2E"),
+    ("Filières scientifiques", f"{kpi['Part des filières scientifiques la plus récente (%)']}%", "🔬", "#B5651D"),
+    ("Chômage diplômés", kpi["Chômage diplômés le plus récent connu (%, année)"], "📉", "#A1443A"),
 ])
 
 # ------------------------------------------------------------------
@@ -115,8 +112,8 @@ synthese = (
     "la Maritime, la mieux dotée en établissements, affiche pourtant le score d'insertion proxy le plus faible du pays."
 )
 st.markdown(
-    f'<div style="padding:18px 22px;background:linear-gradient(135deg,#0B3D66,#17A2B8);color:white;'
-    f'border-radius:12px;font-size:15px;line-height:1.6;">{synthese}</div>',
+    f'<div style="padding:18px 22px;background:#0E2A47;color:white;border-left:3px solid #C99A2E;'
+    f'border-radius:6px;font-size:15px;line-height:1.6;">{synthese}</div>',
     unsafe_allow_html=True,
 )
 

@@ -23,9 +23,9 @@ Formation_Emploi_Togo/
 ├── app.py                     # Point d'entrée (redirige vers Accueil)
 ├── config.py                  # Constantes centrales (chemins, palette, poids)
 ├── requirements.txt
-├── .streamlit/config.toml     # Thème Streamlit (bleu marine + turquoise)
+├── .streamlit/config.toml     # Thème Streamlit (bleu marine + or ocre)
 ├── assets/
-│   ├── style.css                                # Design system Power BI / Looker
+│   ├── style.css                                # Design system "Cabinet ministériel"
 │   ├── ministere_education_nationale.jpg        # République / MEN
 │   ├── ministere_enseignement_superieur.jpg     # République / MESR
 │   └── togo_ai_lab.jpg                          # Partenaire Togo AI Lab
@@ -90,9 +90,12 @@ est signalée par le symbole **⚠️** dans l'application.
 - Passage de **11 pages / filtres multiples** à **5 sections** (Accueil,
   Marché de l'emploi, Formation professionnelle, Analyses & Recommandations,
   À propos), chacune organisée en onglets thématiques.
-- Nouveau design system inspiré de Power BI / Looker Studio / Microsoft Fabric :
-  fond blanc/gris clair, cartes arrondies à ombres légères, palette bleu marine
-  (`#0B3D66`) + turquoise (`#17A2B8`) + orange (`#F2994A`), animations discrètes.
+- Design system « Cabinet ministériel » : typographie éditoriale (Fraunces) +
+  police d'interface institutionnelle (Public Sans) + chiffres en monospace
+  (IBM Plex Mono), dispositif d'en-tête « masthead » (éditeur + règle bicolore)
+  répété sur le bandeau d'accueil et chaque page, formes nettes (rayon 6px),
+  palette bleu marine (`#0E2A47`) + or ocre (`#C99A2E`) + vert profond
+  (`#1E7A6F`) + terre cuite (`#A1443A`).
 - Cartes KPI enrichies (icône, titre, valeur, évolution, couleur).
 - Logos institutionnels affichés en cercles, alignés en haut de chaque page et
   en pied de page.

@@ -22,7 +22,7 @@ render_navbar("À propos", "Auteur · Méthodologie · Sources · Conclusion", "
 st.markdown(
     f"""
     <div class="author-card">
-        <div style="font-size:20px;font-weight:750;color:#0B3D66;">{AUTHOR}</div>
+        <div style="font-size:20px;font-weight:750;color:#0E2A47;">{AUTHOR}</div>
         <div style="color:#64748B;font-size:14.5px;margin:4px 0 14px 0;">
             Ingénieur de Travaux Informatiques — {INSTITUTION}
         </div>
