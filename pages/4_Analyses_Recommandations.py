@@ -29,7 +29,7 @@ from utils.indicators import (
     compute_ml_comparison, compute_clustering, compute_cover_df, compute_saturation_risk,
 )
 from utils.charts import radar_chart, gauge_chart
-from utils.graph_utils import build_graph_region_categorie, plotly_graph_region_categorie
+from utils.graph_utils import build_global_pyvis_html
 from utils.map_utils import build_map_priorities
 from streamlit_folium import st_folium
 
@@ -45,16 +45,16 @@ tabs = st.tabs(["Théorie des graphes", "Indice IAFE", "Machine Learning & Clust
 with tabs[0]:
     st.info("Valeur ajoutée distinctive de ce tableau de bord : au-delà des statistiques descriptives, la "
             "théorie des graphes révèle la structure relationnelle du système éducatif togolais.")
-    G1, centralities = build_graph_region_categorie()
-    st.plotly_chart(plotly_graph_region_categorie(G1, centralities), width='stretch')
-    pivot_regions = [n for n in centralities.sort_values("betweenness", ascending=False).index if n in REGION_COLORS][:2]
-    story_box(f"Régions pivots (forte intermédiarité) : <b>{', '.join(pivot_regions)}</b>. Catégorie de "
-              f"formation dominante (eigenvector max) : <b>{centralities[centralities['type']=='Catégorie']['eigenvector'].idxmax()}</b>.", "info")
+    with st.expander("🌐 Graphe global multi-niveaux interactif (Région → Préfecture → Établissement → Catégorie → Secteur)"):
+        st.caption("Zoomez, faites glisser les nœuds, survolez un point jaune pour voir le nom de l'établissement.")
+        with st.spinner("Construction du graphe global (256 établissements)..."):
+            html = build_global_pyvis_html()
+        st.iframe(html, height=650)
 
     st.markdown("#### Carte nationale des priorités d'investissement")
     impact_urgence = compute_impact_urgence()
     m2 = build_map_priorities(df_filtered, impact_urgence)
-    st_folium(m2, use_container_width=True, height=480, key="map_priorities")
+    st_folium(m2, width='stretch', height=480, key="map_priorities")
 
 # ------------------------------------------------------------------
 # Indice IAFE
@@ -153,7 +153,8 @@ with tabs[1]:
         sc = compute_scenarios()
         st.dataframe(
             sc["scenarios_df"].style.background_gradient(subset=["Δ IAFE national"], cmap="RdYlGn", vmin=-10, vmax=10)
-            .format({"IAFE national": "{:.1f}", "Δ IAFE national": "{:+.1f}"}, na_rep="n/a"), width='stretch', hide_index=True,
+            .format({"IAFE national": "{:.1f}", "Δ IAFE national": "{:+.1f}"}, na_rep="n/a"),
+            width='stretch', hide_index=True,
         )
         st.caption(f"Référence : IAFE national de base = {sc['iafe_base_nat']:.1f}/100. Il faudrait +{sc['nb_centres_necessaires']} "
                    f"centres pour que {sc['region_cible']} quitte la dernière place en couverture/habitant.")
