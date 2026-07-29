@@ -209,3 +209,14 @@ div[data-baseweb="tab-highlight"] { background-color: var(--turquoise) !importan
     .page-header { flex-direction: column; align-items: flex-start; gap: 6px; }
     .logo-strip img { width: 46px; height: 46px; }
 }
+
+/* ---- Logo sidebar (st.logo) : agrandi au-delà du plafond natif (32px) ---- */
+div[data-testid="stSidebarHeader"] {
+    height: auto;
+    padding: 14px 0 4px 0;
+}
+div[data-testid="stSidebarHeader"] img {
+    height: 72px !important;
+    width: auto !important;
+    max-width: 90% !important;
+}

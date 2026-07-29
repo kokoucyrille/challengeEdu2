@@ -46,14 +46,6 @@ COLOR_DANGER = "#D64545"
 COLOR_INFO = "#2C7BE5"
 COLOR_SUCCESS = "#0B6E4F"
 
-# 5 sections maximum au menu (voir pages/) — libellés utilisés par la navbar
-NAV_SECTIONS = [
-    ("1_Accueil", "🏠", "Accueil"),
-    ("2_Marche_Emploi", "📉", "Marché de l'emploi"),
-    ("3_Formation_Professionnelle", "🏫", "Formation professionnelle"),
-    ("4_Analyses_Recommandations", "🧮", "Analyses & Recommandations"),
-    ("5_A_Propos", "ℹ️", "À propos"),
-]
 
 PRIORITY_COLOR = {"Priorité 1": "#D64545", "Priorité 2": "#F4B942", "Priorité 3": "#005BAC"}
 

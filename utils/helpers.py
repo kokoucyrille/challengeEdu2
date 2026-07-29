@@ -21,7 +21,7 @@ def setup_page(page_title: str, page_icon: str = "📄"):
     logos = [ASSETS_DIR / filename for filename in LOGO_FILES]
     available_logos = [logo for logo in logos if logo.exists()]
     if available_logos:
-        st.logo(str(available_logos[0]), size="small")
+        st.logo(str(available_logos[0]), size="large")
     if CSS_PATH.exists():
         st.markdown(f"<style>{CSS_PATH.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
 
